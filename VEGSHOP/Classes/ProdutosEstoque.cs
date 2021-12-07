@@ -8,7 +8,7 @@ namespace VEGSHOP
 {
     class ProdutosEstoque : IEstoque<Produtos>
     {
-        private List<Produtos> ListaProduto = new List<Produtos>();
+        public List<Produtos> ListaProduto = new List<Produtos>();
         public void Atualiza(int id, Produtos entidade)
         {
             ListaProduto[id] = entidade;

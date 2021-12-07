@@ -55,9 +55,10 @@ namespace VEGSHOP
             int indiceProduto = int.Parse(Console.ReadLine());
 
             var produto = estoque.RetornaPorId(indiceProduto);
-
             Console.WriteLine(produto);
+
         }
+
         private static void AtualizarProdutos()
         {
             Console.Write(" Digite o ID do Produto: ");
@@ -118,6 +119,7 @@ namespace VEGSHOP
                 Console.WriteLine("----------------------------------------------------------------------------------");
                 Console.WriteLine(" {0}  ID: {1} | PRODUTO: {2} | DESCRIÇÃO: {3} | {4} |", (excluido ? " PRODUTO EXCLUÍDO " : ""), produto.RetornaIdProduto(), produto.RetornaNomeProtuto(), produto.RetornaDescricaoProtuto(), produto.RetornaProdutoVegano());
             }
+
         }
         private static void InserirProdutos()
         {
@@ -150,7 +152,7 @@ namespace VEGSHOP
                 entradaVegano = "false";
             Convert.ToBoolean(entradaVegano);
 
-            
+
             Produtos novoProduto = new Produtos(idProduto: estoque.ProximoId(),
                                         categoria: (CategoriaProdutos)entradaCategoriaProdutos,
                                         nomeProduto: entradaNomeProduto,
@@ -162,9 +164,11 @@ namespace VEGSHOP
         private static string ObterOpcaoLoja()
         {
             Console.WriteLine();
-            Console.WriteLine("            =======================");
-            Console.WriteLine("            ======= VEGSHOP =======");
-            Console.WriteLine("            =======================");
+            Console.WriteLine(@"    __     _______ ____ ____  _   _  ___  ____");
+            Console.WriteLine(@"    \ \   / / ____/ ___/ ___|| | | |/ _ \|  _ \ ");
+            Console.WriteLine(@"     \ \ / /|  _|| |  _\___ \| |_| | | | | |_) | ");
+            Console.WriteLine(@"      \ V / | |__| |_| |___) |  _  | |_| |  __/ ");
+            Console.WriteLine(@"       \_/  |_____\____|____/|_| |_|\___/|_|   ");
             Console.WriteLine();
             Console.WriteLine(" O que você deseja fazer? Escolha uma das Opções:");
             Console.WriteLine();
@@ -180,7 +184,10 @@ namespace VEGSHOP
             string opcaoLoja = Console.ReadLine().ToUpper();
             Console.WriteLine();
             return opcaoLoja;
-        }
 
+
+
+        }
     }
 }
+
