@@ -1,0 +1,16 @@
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.exe
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.deps.json
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.runtimeconfig.json
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.runtimeconfig.dev.json
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.dll
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\ref\VEGSHOP.dll
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\bin\Debug\net5.0\VEGSHOP.pdb
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.csprojAssemblyReference.cache
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.AssemblyInfoInputs.cache
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.AssemblyInfo.cs
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.csproj.CoreCompileInputs.cache
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.dll
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\ref\VEGSHOP.dll
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.pdb
+C:\Users\Alberto\Desktop\ANDRÉ\Codigo_PI\VEGSHOP\VEGSHOP\obj\Debug\net5.0\VEGSHOP.genruntimeconfig.cache
