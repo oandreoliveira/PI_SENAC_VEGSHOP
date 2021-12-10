@@ -17,7 +17,7 @@ namespace VEGSHOP
         public void Exclui(int id)
         {
             ListaProduto[id].Excluir();
-            //ListaProduto.RemoveAt(id);
+            
         }
 
         public void Insere(Produtos entidade)

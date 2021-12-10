@@ -33,71 +33,111 @@ namespace VEGSHOP
                         break;
 
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        Console.WriteLine(" ------ OPÇÃO INVÁLIDA ------");
+                        break;
                 }
 
                 opcaoLoja = ObterOpcaoLoja();
             }
-
-            Console.WriteLine(" Obrigado! Juntos Fazemos a Diferença!");
+            Console.WriteLine();
+            Console.WriteLine(" OBRIGADO! JUNTO FAZEMOS A DIFERENÇA!");
             Console.ReadLine();
         }
         private static void ExcluirProdutos()
         {
             Console.Write(" Digite o ID do Produto: ");
-            int indiceProduto = int.Parse(Console.ReadLine());
+            var lista = estoque.Lista();
+            var indiceProduto = int.Parse(Console.ReadLine());
 
-            estoque.Exclui(indiceProduto);
+            if (lista.Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine(" IMPOSSÍVEL EXCLUIR - NENHUM PRODUTO CADASTRADO");
+                Console.WriteLine();
+            }
+            foreach (var produto in lista)
+            {
+
+                estoque.Exclui(indiceProduto);
+                Console.WriteLine();
+                Console.WriteLine(" ------ PRODUTO EXCLUÍDO COM SUCESSO! ------");
+                Console.WriteLine();
+            }
         }
         private static void VisualizarProdutos()
         {
             Console.Write(" Digite o ID do Produto: ");
-            int indiceProduto = int.Parse(Console.ReadLine());
+            var lista = estoque.Lista();
+            var indiceProduto = int.Parse(Console.ReadLine());
 
-            var produto = estoque.RetornaPorId(indiceProduto);
-            Console.WriteLine(produto);
+            if (lista.Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine(" IMPOSSÍVEL CONSULTAR - NENHUM PRODUTO CADASTRADO");
+                Console.WriteLine();
+            }
+            foreach (var produto in lista)
+            {
+
+                estoque.RetornaPorId(indiceProduto);
+                Console.WriteLine(produto);
+            }
+
+
+
+
+
 
         }
 
         private static void AtualizarProdutos()
         {
             Console.Write(" Digite o ID do Produto: ");
-            int indiceProduto = int.Parse(Console.ReadLine());
+            var lista = estoque.Lista();
+            var indiceProduto = int.Parse(Console.ReadLine());
 
-            foreach (int i in Enum.GetValues(typeof(CategoriaProdutos)))
+            if (lista.Count == 0)
             {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(CategoriaProdutos), i));
+                Console.WriteLine();
+                Console.WriteLine(" IMPOSSÍVEL ATUALIZAR - NENHUM PRODUTO CADASTRADO");
+                Console.WriteLine();
             }
-            Console.Write(" Digite a Categoria do seu Produto entre as opções acima: ");
-            int entradaCategoriaProdutos = int.Parse(Console.ReadLine());
-
-            Console.Write(" Digite o nome do seu Produto: ");
-            string entradaNomeProduto = Console.ReadLine();
-
-            Console.Write(" Digite a Descrição do seu Produto: ");
-            string entradaDescricaoProduto = Console.ReadLine();
-
-            Console.WriteLine(" O seu produto é Vegano?:");
-            foreach (int i in Enum.GetValues(typeof(EscolhaDoVendedor)))
-            {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(EscolhaDoVendedor), i));
-            }
-            string entradaVegano = (Console.ReadLine());
-            if (entradaVegano == "1")
-                entradaVegano = "true";
             else
-                entradaVegano = "false";
-            Convert.ToBoolean(entradaVegano);
+            {
+                foreach (int i in Enum.GetValues(typeof(CategoriaProdutos)))
+                {
+                    Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(CategoriaProdutos), i));
+                }
+                Console.Write(" Digite a Categoria do seu Produto entre as opções acima: ");
+                int entradaCategoriaProdutos = int.Parse(Console.ReadLine());
 
-            // bool entradaVegano = bool.Parse(Console.ReadLine());
+                Console.Write(" Digite o nome do seu Produto: ");
+                string entradaNomeProduto = Console.ReadLine();
 
-            Produtos atualizaProduto = new Produtos(idProduto: indiceProduto,
-                                        categoria: (CategoriaProdutos)entradaCategoriaProdutos,
-                                        nomeProduto: entradaNomeProduto,
-                                        descricaoProduto: entradaDescricaoProduto,
-                                        produtoVegano: Convert.ToBoolean(entradaVegano));
+                Console.Write(" Digite a Descrição do seu Produto: ");
+                string entradaDescricaoProduto = Console.ReadLine();
 
-            estoque.Atualiza(indiceProduto, atualizaProduto);
+                Console.WriteLine(" O seu produto é Vegano?:");
+                foreach (int i in Enum.GetValues(typeof(EscolhaDoVendedor)))
+                {
+                    Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(EscolhaDoVendedor), i));
+                }
+                string entradaVegano = (Console.ReadLine());
+                if (entradaVegano == "1")
+                    entradaVegano = "true";
+                else
+                    entradaVegano = "false";
+                Convert.ToBoolean(entradaVegano);
+
+                Produtos atualizaProduto = new Produtos(idProduto: indiceProduto,
+                         categoria: (CategoriaProdutos)entradaCategoriaProdutos,
+                         nomeProduto: entradaNomeProduto,
+                         descricaoProduto: entradaDescricaoProduto,
+                         produtoVegano: Convert.ToBoolean(entradaVegano));
+
+                estoque.Atualiza(indiceProduto, atualizaProduto);
+            }
+
         }
         private static void ListarProdutos()
         {
@@ -108,8 +148,8 @@ namespace VEGSHOP
 
             if (lista.Count == 0)
             {
-                Console.WriteLine(" Você ainda não cadastrou nenhum produto");
-                return;
+                Console.WriteLine(" VOCÊ AINDA NÃO CADASTROU NENHUM PRODUTO");
+
             }
 
             foreach (var produto in lista)
@@ -132,6 +172,7 @@ namespace VEGSHOP
             }
             Console.WriteLine();
             Console.Write(" Digite a Categoria do seu Produto entre as opções acima: ");
+
             int entradaCategoriaProdutos = int.Parse(Console.ReadLine());
 
             Console.Write(" Digite o nome do seu Produto: ");
