@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VEGSHOP
 {
-    class ProdutosEstoque : IEstoque<Produtos>
+    class ProdutoRepositorio : IRepositorio<Produto>
     {
-        public List<Produtos> ListaProduto = new List<Produtos>();
-        public void Atualiza(int id, Produtos entidade)
+        public List<Produto> ListaProduto = new List<Produto>();
+        public void Atualiza(int id, Produto entidade)
         {
             ListaProduto[id] = entidade;
         }
@@ -20,12 +20,12 @@ namespace VEGSHOP
             
         }
 
-        public void Insere(Produtos entidade)
+        public void Insere(Produto entidade)
         {
             ListaProduto.Add(entidade);
         }
 
-        public List<Produtos> Lista()
+        public List<Produto> Lista()
         {
             return ListaProduto;
         }
@@ -35,7 +35,7 @@ namespace VEGSHOP
             return ListaProduto.Count;
         }
 
-        public Produtos RetornaPorId(int id)
+        public Produto RetornaPorId(int id)
         {
             return ListaProduto[id];
         }

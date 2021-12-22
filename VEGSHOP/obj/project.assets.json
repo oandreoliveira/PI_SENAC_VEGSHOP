@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP\\VEGSHOP\\VEGSHOP.csproj",
+      "projectUniqueName": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP4\\VEGSHOP\\VEGSHOP\\VEGSHOP.csproj",
       "projectName": "VEGSHOP",
-      "projectPath": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP\\VEGSHOP\\VEGSHOP.csproj",
+      "projectPath": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP4\\VEGSHOP\\VEGSHOP\\VEGSHOP.csproj",
       "packagesPath": "C:\\Users\\Alberto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP\\VEGSHOP\\obj\\",
+      "outputPath": "C:\\Users\\Alberto\\Desktop\\ANDRÉ\\Codigo_PI\\VEGSHOP4\\VEGSHOP\\VEGSHOP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Alberto\\AppData\\Roaming\\NuGet\\NuGet.Config",

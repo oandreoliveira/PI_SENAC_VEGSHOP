@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VEGSHOP
 {
-    public enum CategoriaProdutos
+    public enum CategoriaProduto
     {
         Alimentos = 1,
         Refeicao =2 ,

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace VEGSHOP
 {
-    class Produtos
+    class Produto
     {
 
         private int IdProduto { get; set; }
-        private CategoriaProdutos Categoria { get; set; }
+        private CategoriaProduto Categoria { get; set; }
         private string NomeProduto { get; set; }
         private string DescricaoProduto { get; set; }
         private bool ProdutoVegano { get; set; }
         private bool ProdutoExcluido { get; set; }
 
 
-        public Produtos(int idProduto, CategoriaProdutos categoria, string nomeProduto, string descricaoProduto, bool produtoVegano)
+        public Produto(int idProduto, CategoriaProduto categoria, string nomeProduto, string descricaoProduto, bool produtoVegano)
         {
             IdProduto = idProduto;
             Categoria = categoria;

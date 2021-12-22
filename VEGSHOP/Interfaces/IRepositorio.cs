@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VEGSHOP
 {
-    public interface IEstoque<T>
+    public interface IRepositorio<T>
     {
         List<T> Lista();
         T RetornaPorId(int id);

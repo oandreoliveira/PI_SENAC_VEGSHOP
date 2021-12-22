@@ -4,7 +4,7 @@ namespace VEGSHOP
 {
     class Program
     {
-        static ProdutosEstoque estoque = new ProdutosEstoque();
+        static ProdutoRepositorio estoque = new ProdutoRepositorio();
         static void Main(string[] args)
         {
             string opcaoLoja = ObterOpcaoLoja();
@@ -14,25 +14,25 @@ namespace VEGSHOP
                 switch (opcaoLoja)
                 {
                     case "1":
-                        ListarProdutos();
+                        Console.Clear(); ListarProdutos();
                         break;
                     case "2":
-                        InserirProdutos();
+                        Console.Clear(); InserirProdutos();
                         break;
                     case "3":
-                        AtualizarProdutos();
+                        Console.Clear(); AtualizarProdutos();
                         break;
                     case "4":
-                        ExcluirProdutos();
+                        Console.Clear(); ExcluirProdutos();
                         break;
                     case "5":
-                        VisualizarProdutos();
-                        break;
-                    case "C":
-                        Console.Clear();
+                        Console.Clear(); VisualizarProdutos();
                         break;
 
                     default:
+
+                        Console.Clear();
+                        Console.WriteLine();
                         Console.WriteLine(" ------ OPÇÃO INVÁLIDA ------");
                         break;
                 }
@@ -40,7 +40,7 @@ namespace VEGSHOP
                 opcaoLoja = ObterOpcaoLoja();
             }
             Console.WriteLine();
-            Console.WriteLine(" OBRIGADO! JUNTO FAZEMOS A DIFERENÇA!");
+            Console.WriteLine(" OBRIGADO! JUNTOS FAZEMOS A DIFERENÇA!");
             Console.ReadLine();
         }
         private static void ExcluirProdutos()
@@ -55,7 +55,7 @@ namespace VEGSHOP
                 Console.WriteLine(" IMPOSSÍVEL EXCLUIR - NENHUM PRODUTO CADASTRADO");
                 Console.WriteLine();
             }
-            foreach (var produto in lista)
+            else
             {
 
                 estoque.Exclui(indiceProduto);
@@ -68,7 +68,7 @@ namespace VEGSHOP
         {
             Console.Write(" Digite o ID do Produto: ");
             var lista = estoque.Lista();
-            var indiceProduto = int.Parse(Console.ReadLine());
+            int indiceProduto = int.Parse(Console.ReadLine());
 
             if (lista.Count == 0)
             {
@@ -76,17 +76,12 @@ namespace VEGSHOP
                 Console.WriteLine(" IMPOSSÍVEL CONSULTAR - NENHUM PRODUTO CADASTRADO");
                 Console.WriteLine();
             }
-            foreach (var produto in lista)
+            else
             {
+                var produto = estoque.RetornaPorId(indiceProduto);
 
-                estoque.RetornaPorId(indiceProduto);
                 Console.WriteLine(produto);
             }
-
-
-
-
-
 
         }
 
@@ -104,9 +99,9 @@ namespace VEGSHOP
             }
             else
             {
-                foreach (int i in Enum.GetValues(typeof(CategoriaProdutos)))
+                foreach (int i in Enum.GetValues(typeof(CategoriaProduto)))
                 {
-                    Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(CategoriaProdutos), i));
+                    Console.WriteLine($"{i}-{Enum.GetName(typeof(CategoriaProduto), i)}");
                 }
                 Console.Write(" Digite a Categoria do seu Produto entre as opções acima: ");
                 int entradaCategoriaProdutos = int.Parse(Console.ReadLine());
@@ -120,7 +115,7 @@ namespace VEGSHOP
                 Console.WriteLine(" O seu produto é Vegano?:");
                 foreach (int i in Enum.GetValues(typeof(EscolhaDoVendedor)))
                 {
-                    Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(EscolhaDoVendedor), i));
+                    Console.WriteLine($"{i}-{Enum.GetName(typeof(EscolhaDoVendedor), i)}");
                 }
                 string entradaVegano = (Console.ReadLine());
                 if (entradaVegano == "1")
@@ -129,8 +124,8 @@ namespace VEGSHOP
                     entradaVegano = "false";
                 Convert.ToBoolean(entradaVegano);
 
-                Produtos atualizaProduto = new Produtos(idProduto: indiceProduto,
-                         categoria: (CategoriaProdutos)entradaCategoriaProdutos,
+                Produto atualizaProduto = new Produto(idProduto: indiceProduto,
+                         categoria: (CategoriaProduto)entradaCategoriaProdutos,
                          nomeProduto: entradaNomeProduto,
                          descricaoProduto: entradaDescricaoProduto,
                          produtoVegano: Convert.ToBoolean(entradaVegano));
@@ -157,7 +152,8 @@ namespace VEGSHOP
                 var excluido = produto.RetornaProdutoExcluido();
 
                 Console.WriteLine("----------------------------------------------------------------------------------");
-                Console.WriteLine(" {0}  ID: {1} | PRODUTO: {2} | DESCRIÇÃO: {3} | {4} |", (excluido ? " PRODUTO EXCLUÍDO " : ""), produto.RetornaIdProduto(), produto.RetornaNomeProtuto(), produto.RetornaDescricaoProtuto(), produto.RetornaProdutoVegano());
+                Console.WriteLine($"{ (excluido ? " PRODUTO EXCLUÍDO - " : "")} ID: {produto.RetornaIdProduto()} | PRODUTO: { produto.RetornaNomeProtuto()} | DESCRIÇÃO: {produto.RetornaDescricaoProtuto()} | {produto.RetornaProdutoVegano()} |");
+
             }
 
         }
@@ -166,9 +162,9 @@ namespace VEGSHOP
             Console.WriteLine(" Inserir novo Produto");
             Console.WriteLine();
 
-            foreach (int i in Enum.GetValues(typeof(CategoriaProdutos)))
+            foreach (int i in Enum.GetValues(typeof(CategoriaProduto)))
             {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(CategoriaProdutos), i));
+                Console.WriteLine($"{i}-{Enum.GetName(typeof(CategoriaProduto), i)}");
             }
             Console.WriteLine();
             Console.Write(" Digite a Categoria do seu Produto entre as opções acima: ");
@@ -184,7 +180,7 @@ namespace VEGSHOP
             Console.WriteLine(" O seu produto é Vegano?:");
             foreach (int i in Enum.GetValues(typeof(EscolhaDoVendedor)))
             {
-                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(EscolhaDoVendedor), i));
+                Console.WriteLine($"{i}-{Enum.GetName(typeof(EscolhaDoVendedor), i)}");
             }
             string entradaVegano = (Console.ReadLine());
             if (entradaVegano == "1")
@@ -194,13 +190,14 @@ namespace VEGSHOP
             Convert.ToBoolean(entradaVegano);
 
 
-            Produtos novoProduto = new Produtos(idProduto: estoque.ProximoId(),
-                                        categoria: (CategoriaProdutos)entradaCategoriaProdutos,
+            Produto novoProduto = new Produto(idProduto: estoque.ProximoId(),
+                                        categoria: (CategoriaProduto)entradaCategoriaProdutos,
                                         nomeProduto: entradaNomeProduto,
                                         descricaoProduto: entradaDescricaoProduto,
                                         produtoVegano: Convert.ToBoolean(entradaVegano));
 
             estoque.Insere(novoProduto);
+            Console.Clear();
         }
         private static string ObterOpcaoLoja()
         {
@@ -218,7 +215,6 @@ namespace VEGSHOP
             Console.WriteLine(" 3 - Atualizar Produto");
             Console.WriteLine(" 4 - Excluir Produto");
             Console.WriteLine(" 5 - Consultar Produto");
-            Console.WriteLine(" C - Limpar Tela");
             Console.WriteLine(" X - Sair");
             Console.WriteLine();
 
